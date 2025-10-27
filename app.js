@@ -613,4 +613,104 @@ class GameTracker {
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new GameTracker();
+    initParticles();
 });
+
+// Particle Animation System
+function initParticles() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+
+    // Set canvas size
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Particle class
+    class Particle {
+        constructor() {
+            this.reset();
+            this.y = Math.random() * canvas.height;
+            this.opacity = Math.random() * 0.5 + 0.2;
+        }
+
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = -10;
+            this.size = Math.random() * 2 + 1;
+            this.speedY = Math.random() * 0.5 + 0.2;
+            this.speedX = (Math.random() - 0.5) * 0.3;
+            this.opacity = Math.random() * 0.5 + 0.2;
+
+            // Random color from our palette
+            const colors = [
+                'rgba(6, 182, 212, ',    // cyan
+                'rgba(168, 85, 247, ',   // purple
+                'rgba(236, 72, 153, '    // pink
+            ];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        update() {
+            this.y += this.speedY;
+            this.x += this.speedX;
+
+            // Subtle floating motion
+            this.x += Math.sin(this.y * 0.01) * 0.2;
+
+            // Reset when particle goes off screen
+            if (this.y > canvas.height + 10) {
+                this.reset();
+            }
+
+            if (this.x < -10 || this.x > canvas.width + 10) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + this.opacity + ')';
+            ctx.fill();
+
+            // Add subtle glow
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color + '0.5)';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    // Create particles
+    const particleCount = Math.min(50, Math.floor(window.innerWidth / 20));
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+        cancelAnimationFrame(animationId);
+    });
+}
