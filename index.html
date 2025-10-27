@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track and rate your video game collection">
+    <title>Game Tracker - Track Your Gaming Journey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Game Tracker</h1>
+            <p class="subtitle">Track and rate your gaming journey</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 class="stat-number" id="played-count">0</h3>
+                <p class="stat-label">Games Played</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" id="unplayed-count">100</h3>
+                <p class="stat-label">Not Yet Played</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" id="avg-rating">-</h3>
+                <p class="stat-label">Average Rating</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number" id="completion-percentage">0%</h3>
+                <p class="stat-label">Completion</p>
+            </div>
+        </section>
+
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search games..." aria-label="Search games">
+            </div>
+
+            <div class="filters">
+                <select id="genre-filter" aria-label="Filter by genre">
+                    <option value="">All Genres</option>
+                </select>
+
+                <select id="decade-filter" aria-label="Filter by decade">
+                    <option value="">All Decades</option>
+                    <option value="1980s">1980s</option>
+                    <option value="1990s">1990s</option>
+                    <option value="2000s">2000s</option>
+                    <option value="2010s">2010s</option>
+                    <option value="2020s">2020s</option>
+                </select>
+
+                <select id="status-filter" aria-label="Filter by status">
+                    <option value="">All Games</option>
+                    <option value="played">Played</option>
+                    <option value="unplayed">Not Played</option>
+                </select>
+
+                <select id="sort-by" aria-label="Sort by">
+                    <option value="title">Sort: Title (A-Z)</option>
+                    <option value="year">Sort: Year</option>
+                    <option value="rating">Sort: Rating</option>
+                    <option value="recent">Sort: Recently Added</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Games Grid -->
+        <section class="games-section">
+            <div id="game-count" class="game-count"></div>
+            <div id="games-grid" class="games-grid">
+                <!-- Games will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Game Detail Modal -->
+    <div id="game-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2 id="modal-title"></h2>
+            <div class="modal-info">
+                <p><strong>Year:</strong> <span id="modal-year"></span></p>
+                <p><strong>Genre:</strong> <span id="modal-genre"></span></p>
+                <p><strong>Themes:</strong> <span id="modal-themes"></span></p>
+            </div>
+
+            <div class="rating-section">
+                <h3>Your Rating</h3>
+                <div class="star-rating">
+                    <button class="star" data-rating="1" aria-label="Rate 1 star">&#9733;</button>
+                    <button class="star" data-rating="2" aria-label="Rate 2 stars">&#9733;</button>
+                    <button class="star" data-rating="3" aria-label="Rate 3 stars">&#9733;</button>
+                    <button class="star" data-rating="4" aria-label="Rate 4 stars">&#9733;</button>
+                    <button class="star" data-rating="5" aria-label="Rate 5 stars">&#9733;</button>
+                </div>
+                <p class="rating-text" id="rating-text">Not yet rated</p>
+            </div>
+
+            <div class="modal-actions">
+                <button id="mark-unplayed" class="btn btn-secondary">Mark as Not Played</button>
+                <button id="clear-rating" class="btn btn-secondary">Clear Rating</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Game Tracker. Built with local storage for privacy.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
