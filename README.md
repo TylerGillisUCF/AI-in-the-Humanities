@@ -6,12 +6,14 @@ A video game tracking website that helps you catalog and rate your gaming journe
 
 - **100 Curated Games**: A diverse collection spanning multiple genres and decades (1980s-2020s)
 - **Smart Recommendations**: Get personalized game suggestions based on your ratings
-- **Local Storage**: All your ratings and progress are saved locally in your browser
+- **Personal Notes**: Write thoughts, memories, and reasons for your ratings (1000 characters per game)
+- **Local Storage**: All your ratings, notes, and progress are saved locally in your browser
 - **Smart Filtering**: Filter by genre, decade, play status, or search by title/theme
 - **Rating System**: Rate games with a 5-star system
 - **Statistics Dashboard**: Track your progress with real-time statistics
+- **Dynamic Animations**: Subtle particle effects and modern visual enhancements
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Dark Theme**: Easy on the eyes with a modern dark interface
+- **Modern Dark Theme**: Vibrant cyan/purple/pink color scheme with glowing effects
 
 ## Technologies Used
 
@@ -46,8 +48,10 @@ Each game is tagged with:
 2. **Search**: Use the search bar to find games by title, genre, or theme
 3. **Rate Games**: Click on any game card to open the rating modal
 4. **Star Rating**: Click stars to rate a game (automatically marks it as played)
-5. **Track Progress**: View your statistics at the top of the page
-6. **Filter**: Use dropdown menus to filter by genre, decade, or play status
+5. **Add Notes**: Write your thoughts and memories in the notes section (saves with Ctrl+S / Cmd+S)
+6. **Track Progress**: View your statistics at the top of the page
+7. **Get Recommendations**: Rate 2+ games to receive personalized recommendations
+8. **Filter**: Use dropdown menus to filter by genre, decade, or play status
 
 ## Local Development
 
@@ -91,6 +95,16 @@ This site is optimized for GitHub Pages:
 - **Decade**: Filter by release decade (1980s-2020s)
 - **Status**: Show only played or unplayed games
 - **Sort**: Sort by title, year, rating, or recently played
+
+### Personal Notes
+Capture your gaming memories and thoughts:
+- **1000 Characters**: Plenty of space to write about each game
+- **Auto-Save**: Press Ctrl+S (or Cmd+S on Mac) to save quickly
+- **Notes Preview**: See truncated notes on game cards (80 characters)
+- **Independent**: Notes persist even when changing ratings
+- **Visual Feedback**: Save button confirms with green gradient and "Saved!" message
+- **Character Counter**: Real-time count shows remaining space
+- **Use Cases**: Remember why you rated it, note memorable moments, track when you played
 
 ### Recommendation System
 The intelligent recommendation engine analyzes your ratings to suggest games you might enjoy:
