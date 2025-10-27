@@ -48,7 +48,7 @@ class GameTracker {
 
     // Get user progress for a specific game
     getGameProgress(gameId) {
-        return this.userProgress[gameId] || { played: false, rating: 0 };
+        return this.userProgress[gameId] || { played: false, rating: 0, notes: '' };
     }
 
     // Update game progress
@@ -369,6 +369,14 @@ class GameTracker {
             ? this.createStarDisplay(progress.rating)
             : '<span style="color: var(--text-secondary); font-size: 0.85rem;">No rating</span>';
 
+        // Notes preview (truncated to 80 characters)
+        const notesPreview = progress.notes && progress.notes.trim()
+            ? `<div class="notes-preview">
+                   <div class="notes-preview-label">Your Notes</div>
+                   <div class="notes-preview-text">${this.truncateText(progress.notes, 80)}</div>
+               </div>`
+            : '';
+
         return `
             <div class="game-card ${statusClass}" data-game-id="${game.id}">
                 <h3 class="game-title">${game.title}</h3>
@@ -379,12 +387,18 @@ class GameTracker {
                 <div class="game-themes">
                     ${game.themes.map(theme => `<span class="theme-tag">${theme}</span>`).join('')}
                 </div>
+                ${notesPreview}
                 <div class="game-status">
                     <span class="status-badge ${statusClass}">${statusText}</span>
                     <div class="game-rating">${ratingStars}</div>
                 </div>
             </div>
         `;
+    }
+
+    truncateText(text, maxLength) {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength).trim() + '...';
     }
 
     createStarDisplay(rating) {
@@ -421,6 +435,11 @@ class GameTracker {
             ratingText.textContent = 'Not yet rated';
         }
 
+        // Update notes
+        const notesTextarea = document.getElementById('game-notes');
+        notesTextarea.value = progress.notes || '';
+        this.updateNotesCharCount();
+
         // Show/hide buttons based on status
         const markUnplayedBtn = document.getElementById('mark-unplayed');
         const clearRatingBtn = document.getElementById('clear-rating');
@@ -437,6 +456,36 @@ class GameTracker {
         const modal = document.getElementById('game-modal');
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+    }
+
+    updateNotesCharCount() {
+        const notesTextarea = document.getElementById('game-notes');
+        const charCount = document.getElementById('notes-char-count');
+        const currentLength = notesTextarea.value.length;
+        charCount.textContent = `${currentLength} / 1000`;
+    }
+
+    saveNotes() {
+        if (!this.currentGameId) return;
+
+        const notesTextarea = document.getElementById('game-notes');
+        const notes = notesTextarea.value.trim();
+
+        this.updateGameProgress(this.currentGameId, { notes });
+
+        // Show visual feedback
+        const saveBtn = document.getElementById('save-notes');
+        const originalText = saveBtn.textContent;
+        saveBtn.textContent = 'Saved!';
+        saveBtn.style.background = 'linear-gradient(135deg, var(--success), var(--success))';
+
+        setTimeout(() => {
+            saveBtn.textContent = originalText;
+            saveBtn.style.background = '';
+        }, 1500);
+
+        // Re-render games to update any notes previews
+        this.renderGames();
     }
 
     closeGameModal() {
@@ -596,6 +645,25 @@ class GameTracker {
         // Clear rating button
         document.getElementById('clear-rating').addEventListener('click', () => {
             this.clearRating();
+        });
+
+        // Notes functionality
+        const notesTextarea = document.getElementById('game-notes');
+        notesTextarea.addEventListener('input', () => {
+            this.updateNotesCharCount();
+        });
+
+        // Save notes button
+        document.getElementById('save-notes').addEventListener('click', () => {
+            this.saveNotes();
+        });
+
+        // Auto-save notes on Ctrl+S or Cmd+S
+        notesTextarea.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                this.saveNotes();
+            }
         });
     }
 

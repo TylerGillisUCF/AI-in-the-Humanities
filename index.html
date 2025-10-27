@@ -115,6 +115,21 @@
                 <p class="rating-text" id="rating-text">Not yet rated</p>
             </div>
 
+            <div class="notes-section">
+                <h3>Your Notes</h3>
+                <p class="notes-subtitle">Share your thoughts, memories, or why you rated it this way</p>
+                <textarea
+                    id="game-notes"
+                    placeholder="Write your thoughts about this game..."
+                    maxlength="1000"
+                    aria-label="Game notes"
+                ></textarea>
+                <div class="notes-info">
+                    <span id="notes-char-count">0 / 1000</span>
+                    <button id="save-notes" class="btn-save-notes">Save Notes</button>
+                </div>
+            </div>
+
             <div class="modal-actions">
                 <button id="mark-unplayed" class="btn btn-secondary">Mark as Not Played</button>
                 <button id="clear-rating" class="btn btn-secondary">Clear Rating</button>
