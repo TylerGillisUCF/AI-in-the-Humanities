@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "year": 1998,
+    "genre": "Action-Adventure",
+    "themes": ["Fantasy", "Puzzle", "Exploration"]
+  },
+  {
+    "id": 2,
+    "title": "Half-Life 2",
+    "year": 2004,
+    "genre": "First-Person Shooter",
+    "themes": ["Sci-Fi", "Dystopian", "Physics-Based"]
+  },
+  {
+    "id": 3,
+    "title": "Dark Souls",
+    "year": 2011,
+    "genre": "Action RPG",
+    "themes": ["Fantasy", "Challenging", "Dark Fantasy"]
+  },
+  {
+    "id": 4,
+    "title": "Portal 2",
+    "year": 2011,
+    "genre": "Puzzle",
+    "themes": ["Sci-Fi", "Comedy", "Physics-Based"]
+  },
+  {
+    "id": 5,
+    "title": "The Witcher 3: Wild Hunt",
+    "year": 2015,
+    "genre": "RPG",
+    "themes": ["Fantasy", "Open World", "Story-Rich"]
+  },
+  {
+    "id": 6,
+    "title": "Super Mario 64",
+    "year": 1996,
+    "genre": "Platformer",
+    "themes": ["Family-Friendly", "Exploration", "Classic"]
+  },
+  {
+    "id": 7,
+    "title": "Minecraft",
+    "year": 2011,
+    "genre": "Sandbox",
+    "themes": ["Crafting", "Building", "Survival"]
+  },
+  {
+    "id": 8,
+    "title": "Red Dead Redemption 2",
+    "year": 2018,
+    "genre": "Action-Adventure",
+    "themes": ["Western", "Open World", "Story-Rich"]
+  },
+  {
+    "id": 9,
+    "title": "Tetris",
+    "year": 1984,
+    "genre": "Puzzle",
+    "themes": ["Classic", "Arcade", "Timeless"]
+  },
+  {
+    "id": 10,
+    "title": "Resident Evil 4",
+    "year": 2005,
+    "genre": "Survival Horror",
+    "themes": ["Horror", "Action", "Third-Person"]
+  },
+  {
+    "id": 11,
+    "title": "Chrono Trigger",
+    "year": 1995,
+    "genre": "JRPG",
+    "themes": ["Time Travel", "Fantasy", "Classic"]
+  },
+  {
+    "id": 12,
+    "title": "Mass Effect 2",
+    "year": 2010,
+    "genre": "Action RPG",
+    "themes": ["Sci-Fi", "Space Opera", "Story-Rich"]
+  },
+  {
+    "id": 13,
+    "title": "Doom",
+    "year": 1993,
+    "genre": "First-Person Shooter",
+    "themes": ["Classic", "Fast-Paced", "Demons"]
+  },
+  {
+    "id": 14,
+    "title": "Street Fighter II",
+    "year": 1991,
+    "genre": "Fighting",
+    "themes": ["Competitive", "Arcade", "Classic"]
+  },
+  {
+    "id": 15,
+    "title": "Civilization VI",
+    "year": 2016,
+    "genre": "Strategy",
+    "themes": ["Turn-Based", "Historical", "4X"]
+  },
+  {
+    "id": 16,
+    "title": "Hades",
+    "year": 2020,
+    "genre": "Roguelike",
+    "themes": ["Mythology", "Action", "Indie"]
+  },
+  {
+    "id": 17,
+    "title": "Final Fantasy VII",
+    "year": 1997,
+    "genre": "JRPG",
+    "themes": ["Fantasy", "Sci-Fi", "Story-Rich"]
+  },
+  {
+    "id": 18,
+    "title": "Super Metroid",
+    "year": 1994,
+    "genre": "Metroidvania",
+    "themes": ["Exploration", "Sci-Fi", "Classic"]
+  },
+  {
+    "id": 19,
+    "title": "The Last of Us",
+    "year": 2013,
+    "genre": "Action-Adventure",
+    "themes": ["Post-Apocalyptic", "Story-Rich", "Survival"]
+  },
+  {
+    "id": 20,
+    "title": "Stardew Valley",
+    "year": 2016,
+    "genre": "Simulation",
+    "themes": ["Farming", "Relaxing", "Indie"]
+  },
+  {
+    "id": 21,
+    "title": "God of War",
+    "year": 2018,
+    "genre": "Action-Adventure",
+    "themes": ["Mythology", "Story-Rich", "Action"]
+  },
+  {
+    "id": 22,
+    "title": "Bioshock",
+    "year": 2007,
+    "genre": "First-Person Shooter",
+    "themes": ["Dystopian", "Story-Rich", "Atmospheric"]
+  },
+  {
+    "id": 23,
+    "title": "Hollow Knight",
+    "year": 2017,
+    "genre": "Metroidvania",
+    "themes": ["Challenging", "Exploration", "Indie"]
+  },
+  {
+    "id": 24,
+    "title": "Sekiro: Shadows Die Twice",
+    "year": 2019,
+    "genre": "Action-Adventure",
+    "themes": ["Challenging", "Samurai", "Dark Fantasy"]
+  },
+  {
+    "id": 25,
+    "title": "StarCraft: Brood War",
+    "year": 1998,
+    "genre": "Real-Time Strategy",
+    "themes": ["Sci-Fi", "Competitive", "Space"]
+  },
+  {
+    "id": 26,
+    "title": "Metal Gear Solid",
+    "year": 1998,
+    "genre": "Stealth",
+    "themes": ["Tactical", "Story-Rich", "Espionage"]
+  },
+  {
+    "id": 27,
+    "title": "Celeste",
+    "year": 2018,
+    "genre": "Platformer",
+    "themes": ["Challenging", "Story-Rich", "Indie"]
+  },
+  {
+    "id": 28,
+    "title": "Baldur's Gate II",
+    "year": 2000,
+    "genre": "RPG",
+    "themes": ["Fantasy", "D&D", "Classic"]
+  },
+  {
+    "id": 29,
+    "title": "Undertale",
+    "year": 2015,
+    "genre": "RPG",
+    "themes": ["Indie", "Unique", "Story-Rich"]
+  },
+  {
+    "id": 30,
+    "title": "Bloodborne",
+    "year": 2015,
+    "genre": "Action RPG",
+    "themes": ["Horror", "Challenging", "Gothic"]
+  },
+  {
+    "id": 31,
+    "title": "Super Mario Bros. 3",
+    "year": 1988,
+    "genre": "Platformer",
+    "themes": ["Classic", "Family-Friendly", "Iconic"]
+  },
+  {
+    "id": 32,
+    "title": "Grand Theft Auto V",
+    "year": 2013,
+    "genre": "Action-Adventure",
+    "themes": ["Open World", "Crime", "Satirical"]
+  },
+  {
+    "id": 33,
+    "title": "Elden Ring",
+    "year": 2022,
+    "genre": "Action RPG",
+    "themes": ["Open World", "Fantasy", "Challenging"]
+  },
+  {
+    "id": 34,
+    "title": "Diablo II",
+    "year": 2000,
+    "genre": "Action RPG",
+    "themes": ["Hack and Slash", "Dark Fantasy", "Loot"]
+  },
+  {
+    "id": 35,
+    "title": "Silent Hill 2",
+    "year": 2001,
+    "genre": "Survival Horror",
+    "themes": ["Psychological", "Horror", "Atmospheric"]
+  },
+  {
+    "id": 36,
+    "title": "World of Warcraft",
+    "year": 2004,
+    "genre": "MMORPG",
+    "themes": ["Fantasy", "Online", "Social"]
+  },
+  {
+    "id": 37,
+    "title": "Overwatch",
+    "year": 2016,
+    "genre": "Hero Shooter",
+    "themes": ["Team-Based", "Competitive", "Colorful"]
+  },
+  {
+    "id": 38,
+    "title": "Persona 5",
+    "year": 2016,
+    "genre": "JRPG",
+    "themes": ["Stylish", "Social", "Turn-Based"]
+  },
+  {
+    "id": 39,
+    "title": "Counter-Strike: Global Offensive",
+    "year": 2012,
+    "genre": "Tactical Shooter",
+    "themes": ["Competitive", "Team-Based", "Online"]
+  },
+  {
+    "id": 40,
+    "title": "The Elder Scrolls V: Skyrim",
+    "year": 2011,
+    "genre": "RPG",
+    "themes": ["Open World", "Fantasy", "Exploration"]
+  },
+  {
+    "id": 41,
+    "title": "Journey",
+    "year": 2012,
+    "genre": "Adventure",
+    "themes": ["Artistic", "Emotional", "Atmospheric"]
+  },
+  {
+    "id": 42,
+    "title": "Super Smash Bros. Melee",
+    "year": 2001,
+    "genre": "Fighting",
+    "themes": ["Party", "Competitive", "Crossover"]
+  },
+  {
+    "id": 43,
+    "title": "Fallout: New Vegas",
+    "year": 2010,
+    "genre": "RPG",
+    "themes": ["Post-Apocalyptic", "Open World", "Choice-Driven"]
+  },
+  {
+    "id": 44,
+    "title": "Dishonored",
+    "year": 2012,
+    "genre": "Stealth",
+    "themes": ["Steampunk", "Choice-Driven", "Supernatural"]
+  },
+  {
+    "id": 45,
+    "title": "Age of Empires II",
+    "year": 1999,
+    "genre": "Real-Time Strategy",
+    "themes": ["Historical", "Medieval", "Competitive"]
+  },
+  {
+    "id": 46,
+    "title": "Rocket League",
+    "year": 2015,
+    "genre": "Sports",
+    "themes": ["Competitive", "Physics-Based", "Online"]
+  },
+  {
+    "id": 47,
+    "title": "Dead Space",
+    "year": 2008,
+    "genre": "Survival Horror",
+    "themes": ["Sci-Fi", "Horror", "Atmospheric"]
+  },
+  {
+    "id": 48,
+    "title": "Animal Crossing: New Horizons",
+    "year": 2020,
+    "genre": "Simulation",
+    "themes": ["Relaxing", "Social", "Customization"]
+  },
+  {
+    "id": 49,
+    "title": "Castlevania: Symphony of the Night",
+    "year": 1997,
+    "genre": "Metroidvania",
+    "themes": ["Gothic", "Exploration", "Classic"]
+  },
+  {
+    "id": 50,
+    "title": "Deus Ex",
+    "year": 2000,
+    "genre": "Immersive Sim",
+    "themes": ["Cyberpunk", "Choice-Driven", "Conspiracy"]
+  },
+  {
+    "id": 51,
+    "title": "League of Legends",
+    "year": 2009,
+    "genre": "MOBA",
+    "themes": ["Competitive", "Team-Based", "Online"]
+  },
+  {
+    "id": 52,
+    "title": "Shadow of the Colossus",
+    "year": 2005,
+    "genre": "Action-Adventure",
+    "themes": ["Artistic", "Atmospheric", "Boss Rush"]
+  },
+  {
+    "id": 53,
+    "title": "Dragon Quest XI",
+    "year": 2017,
+    "genre": "JRPG",
+    "themes": ["Fantasy", "Traditional", "Story-Rich"]
+  },
+  {
+    "id": 54,
+    "title": "Super Mario World",
+    "year": 1990,
+    "genre": "Platformer",
+    "themes": ["Classic", "Family-Friendly", "Iconic"]
+  },
+  {
+    "id": 55,
+    "title": "Disco Elysium",
+    "year": 2019,
+    "genre": "RPG",
+    "themes": ["Detective", "Story-Rich", "Unique"]
+  },
+  {
+    "id": 56,
+    "title": "Mega Man 2",
+    "year": 1988,
+    "genre": "Platformer",
+    "themes": ["Classic", "Challenging", "Robot"]
+  },
+  {
+    "id": 57,
+    "title": "Terraria",
+    "year": 2011,
+    "genre": "Sandbox",
+    "themes": ["Crafting", "Exploration", "2D"]
+  },
+  {
+    "id": 58,
+    "title": "Cuphead",
+    "year": 2017,
+    "genre": "Run and Gun",
+    "themes": ["Boss Rush", "Challenging", "Hand-Drawn"]
+  },
+  {
+    "id": 59,
+    "title": "XCOM 2",
+    "year": 2016,
+    "genre": "Turn-Based Strategy",
+    "themes": ["Tactical", "Aliens", "Permadeath"]
+  },
+  {
+    "id": 60,
+    "title": "Monster Hunter: World",
+    "year": 2018,
+    "genre": "Action RPG",
+    "themes": ["Cooperative", "Boss Rush", "Crafting"]
+  },
+  {
+    "id": 61,
+    "title": "Sonic the Hedgehog 2",
+    "year": 1992,
+    "genre": "Platformer",
+    "themes": ["Fast-Paced", "Classic", "Iconic"]
+  },
+  {
+    "id": 62,
+    "title": "The Sims 4",
+    "year": 2014,
+    "genre": "Simulation",
+    "themes": ["Life Sim", "Creative", "Casual"]
+  },
+  {
+    "id": 63,
+    "title": "Fire Emblem: Three Houses",
+    "year": 2019,
+    "genre": "Tactical RPG",
+    "themes": ["Strategy", "Story-Rich", "Turn-Based"]
+  },
+  {
+    "id": 64,
+    "title": "Left 4 Dead 2",
+    "year": 2009,
+    "genre": "Cooperative Shooter",
+    "themes": ["Zombies", "Team-Based", "Multiplayer"]
+  },
+  {
+    "id": 65,
+    "title": "Ori and the Blind Forest",
+    "year": 2015,
+    "genre": "Metroidvania",
+    "themes": ["Beautiful", "Emotional", "Platformer"]
+  },
+  {
+    "id": 66,
+    "title": "Marvel's Spider-Man",
+    "year": 2018,
+    "genre": "Action-Adventure",
+    "themes": ["Superhero", "Open World", "Traversal"]
+  },
+  {
+    "id": 67,
+    "title": "Apex Legends",
+    "year": 2019,
+    "genre": "Battle Royale",
+    "themes": ["Competitive", "Team-Based", "Fast-Paced"]
+  },
+  {
+    "id": 68,
+    "title": "Pac-Man",
+    "year": 1980,
+    "genre": "Arcade",
+    "themes": ["Classic", "Timeless", "Maze"]
+  },
+  {
+    "id": 69,
+    "title": "Forza Horizon 4",
+    "year": 2018,
+    "genre": "Racing",
+    "themes": ["Open World", "Realistic", "Beautiful"]
+  },
+  {
+    "id": 70,
+    "title": "Divinity: Original Sin 2",
+    "year": 2017,
+    "genre": "RPG",
+    "themes": ["Turn-Based", "Cooperative", "D&D"]
+  },
+  {
+    "id": 71,
+    "title": "Mortal Kombat 11",
+    "year": 2019,
+    "genre": "Fighting",
+    "themes": ["Competitive", "Violent", "Story-Rich"]
+  },
+  {
+    "id": 72,
+    "title": "Horizon Zero Dawn",
+    "year": 2017,
+    "genre": "Action RPG",
+    "themes": ["Post-Apocalyptic", "Robots", "Open World"]
+  },
+  {
+    "id": 73,
+    "title": "Slay the Spire",
+    "year": 2019,
+    "genre": "Deck-Building",
+    "themes": ["Roguelike", "Strategy", "Card Game"]
+  },
+  {
+    "id": 74,
+    "title": "Outer Wilds",
+    "year": 2019,
+    "genre": "Exploration",
+    "themes": ["Mystery", "Space", "Time Loop"]
+  },
+  {
+    "id": 75,
+    "title": "Super Mario Galaxy",
+    "year": 2007,
+    "genre": "Platformer",
+    "themes": ["Space", "Creative", "Family-Friendly"]
+  },
+  {
+    "id": 76,
+    "title": "Bayonetta",
+    "year": 2009,
+    "genre": "Action",
+    "themes": ["Stylish", "Fast-Paced", "Over-the-Top"]
+  },
+  {
+    "id": 77,
+    "title": "Factorio",
+    "year": 2020,
+    "genre": "Simulation",
+    "themes": ["Automation", "Strategy", "Building"]
+  },
+  {
+    "id": 78,
+    "title": "Into the Breach",
+    "year": 2018,
+    "genre": "Turn-Based Strategy",
+    "themes": ["Tactical", "Roguelike", "Minimalist"]
+  },
+  {
+    "id": 79,
+    "title": "Shovel Knight",
+    "year": 2014,
+    "genre": "Platformer",
+    "themes": ["Retro", "Challenging", "Indie"]
+  },
+  {
+    "id": 80,
+    "title": "Return of the Obra Dinn",
+    "year": 2018,
+    "genre": "Puzzle",
+    "themes": ["Mystery", "Detective", "Unique"]
+  },
+  {
+    "id": 81,
+    "title": "Kingdom Hearts II",
+    "year": 2005,
+    "genre": "Action RPG",
+    "themes": ["Disney", "JRPG", "Crossover"]
+  },
+  {
+    "id": 82,
+    "title": "Amnesia: The Dark Descent",
+    "year": 2010,
+    "genre": "Survival Horror",
+    "themes": ["Horror", "Psychological", "Atmospheric"]
+  },
+  {
+    "id": 83,
+    "title": "The Binding of Isaac",
+    "year": 2011,
+    "genre": "Roguelike",
+    "themes": ["Dark", "Challenging", "Indie"]
+  },
+  {
+    "id": 84,
+    "title": "Tony Hawk's Pro Skater 2",
+    "year": 2000,
+    "genre": "Sports",
+    "themes": ["Skateboarding", "Arcade", "Soundtrack"]
+  },
+  {
+    "id": 85,
+    "title": "Grim Fandango",
+    "year": 1998,
+    "genre": "Adventure",
+    "themes": ["Point-and-Click", "Film Noir", "Comedy"]
+  },
+  {
+    "id": 86,
+    "title": "Devil May Cry 3",
+    "year": 2005,
+    "genre": "Action",
+    "themes": ["Stylish", "Challenging", "Demons"]
+  },
+  {
+    "id": 87,
+    "title": "Valheim",
+    "year": 2021,
+    "genre": "Survival",
+    "themes": ["Viking", "Cooperative", "Building"]
+  },
+  {
+    "id": 88,
+    "title": "Papers, Please",
+    "year": 2013,
+    "genre": "Puzzle",
+    "themes": ["Political", "Moral Choices", "Indie"]
+  },
+  {
+    "id": 89,
+    "title": "Doom Eternal",
+    "year": 2020,
+    "genre": "First-Person Shooter",
+    "themes": ["Fast-Paced", "Demons", "Metal"]
+  },
+  {
+    "id": 90,
+    "title": "Earthbound",
+    "year": 1994,
+    "genre": "JRPG",
+    "themes": ["Quirky", "Modern Setting", "Classic"]
+  },
+  {
+    "id": 91,
+    "title": "Yakuza 0",
+    "year": 2015,
+    "genre": "Action-Adventure",
+    "themes": ["Crime Drama", "Japanese", "Story-Rich"]
+  },
+  {
+    "id": 92,
+    "title": "Spelunky 2",
+    "year": 2020,
+    "genre": "Roguelike",
+    "themes": ["Platformer", "Challenging", "Procedural"]
+  },
+  {
+    "id": 93,
+    "title": "Civilization II",
+    "year": 1996,
+    "genre": "Strategy",
+    "themes": ["Turn-Based", "Historical", "Classic"]
+  },
+  {
+    "id": 94,
+    "title": "Ghost of Tsushima",
+    "year": 2020,
+    "genre": "Action-Adventure",
+    "themes": ["Samurai", "Open World", "Beautiful"]
+  },
+  {
+    "id": 95,
+    "title": "Control",
+    "year": 2019,
+    "genre": "Action-Adventure",
+    "themes": ["Supernatural", "Weird", "Story-Rich"]
+  },
+  {
+    "id": 96,
+    "title": "Starcraft II",
+    "year": 2010,
+    "genre": "Real-Time Strategy",
+    "themes": ["Sci-Fi", "Competitive", "Esports"]
+  },
+  {
+    "id": 97,
+    "title": "Katamari Damacy",
+    "year": 2004,
+    "genre": "Puzzle",
+    "themes": ["Quirky", "Creative", "Japanese"]
+  },
+  {
+    "id": 98,
+    "title": "Ratchet & Clank: Rift Apart",
+    "year": 2021,
+    "genre": "Action-Platformer",
+    "themes": ["Sci-Fi", "Family-Friendly", "Beautiful"]
+  },
+  {
+    "id": 99,
+    "title": "It Takes Two",
+    "year": 2021,
+    "genre": "Cooperative",
+    "themes": ["Story-Rich", "Creative", "Multiplayer"]
+  },
+  {
+    "id": 100,
+    "title": "Geometry Wars",
+    "year": 2003,
+    "genre": "Twin-Stick Shooter",
+    "themes": ["Arcade", "Fast-Paced", "Minimalist"]
+  }
+]
