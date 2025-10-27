@@ -100,6 +100,118 @@ main {
     letter-spacing: 0.5px;
 }
 
+/* Recommendations Section */
+.recommendations-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.recommendations-header {
+    margin-bottom: 1.5rem;
+}
+
+.recommendations-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recommendations-header h2::before {
+    content: '✨';
+    font-size: 1.5rem;
+}
+
+.recommendations-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.recommendation-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.recommendation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.recommendation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+    border-color: var(--secondary-color);
+}
+
+.recommendation-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.35rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recommendation-card .game-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.recommendation-card .game-meta {
+    margin-bottom: 0.75rem;
+}
+
+.recommendation-card .game-themes {
+    margin-bottom: 1rem;
+}
+
+.match-reasons {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.match-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.match-text::before {
+    content: '💡';
+    font-style: normal;
+}
+
 /* Controls Section */
 .controls-section {
     background: var(--surface);
@@ -494,6 +606,10 @@ footer {
     }
 
     .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recommendations-grid {
         grid-template-columns: 1fr;
     }
 

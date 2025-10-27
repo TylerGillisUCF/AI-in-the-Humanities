@@ -5,6 +5,7 @@ A video game tracking website that helps you catalog and rate your gaming journe
 ## Features
 
 - **100 Curated Games**: A diverse collection spanning multiple genres and decades (1980s-2020s)
+- **Smart Recommendations**: Get personalized game suggestions based on your ratings
 - **Local Storage**: All your ratings and progress are saved locally in your browser
 - **Smart Filtering**: Filter by genre, decade, play status, or search by title/theme
 - **Rating System**: Rate games with a 5-star system
@@ -90,6 +91,18 @@ This site is optimized for GitHub Pages:
 - **Decade**: Filter by release decade (1980s-2020s)
 - **Status**: Show only played or unplayed games
 - **Sort**: Sort by title, year, rating, or recently played
+
+### Recommendation System
+The intelligent recommendation engine analyzes your ratings to suggest games you might enjoy:
+- **Minimum Requirements**: Rate at least 2 games to get recommendations
+- **Smart Matching**: Prioritizes games rated 4-5 stars for preference analysis
+- **Multi-Factor Algorithm**:
+  - Matches genres (highest weight)
+  - Matches themes and tags
+  - Considers time period preferences
+  - Shows top 6 most relevant unplayed games
+- **Dynamic Updates**: Recommendations refresh automatically as you rate games
+- **Personalized Insights**: Each recommendation includes explanation of why it was suggested
 
 ### Privacy
 All data is stored locally in your browser using localStorage. No data is sent to any server or third party.
