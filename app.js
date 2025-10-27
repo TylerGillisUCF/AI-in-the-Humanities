@@ -19,6 +19,7 @@ class GameTracker {
         this.populateGenreFilter();
         this.renderGames();
         this.updateStats();
+        this.updateRecommendations();
         this.attachEventListeners();
     }
 
@@ -42,6 +43,7 @@ class GameTracker {
     saveProgress() {
         localStorage.setItem('gameTrackerProgress', JSON.stringify(this.userProgress));
         this.updateStats();
+        this.updateRecommendations();
     }
 
     // Get user progress for a specific game
@@ -84,6 +86,174 @@ class GameTracker {
         const completionPercentage = ((playedCount / this.games.length) * 100).toFixed(0) + '%';
 
         return { playedCount, unplayedCount, avgRating, completionPercentage };
+    }
+
+    // Recommendation System
+    generateRecommendations() {
+        // Get all rated games (only games with ratings)
+        const ratedGames = this.games.filter(game => {
+            const progress = this.getGameProgress(game.id);
+            return progress.played && progress.rating > 0;
+        });
+
+        // Need at least 2 rated games for recommendations
+        if (ratedGames.length < 2) {
+            return [];
+        }
+
+        // Build preference profile based on highly rated games (4-5 stars)
+        const highlyRatedGames = ratedGames.filter(game => {
+            const progress = this.getGameProgress(game.id);
+            return progress.rating >= 4;
+        });
+
+        // If no highly rated games, use games rated 3+ stars
+        const preferredGames = highlyRatedGames.length > 0
+            ? highlyRatedGames
+            : ratedGames.filter(game => this.getGameProgress(game.id).rating >= 3);
+
+        if (preferredGames.length === 0) {
+            return [];
+        }
+
+        // Calculate theme and genre weights
+        const themeWeights = {};
+        const genreWeights = {};
+
+        preferredGames.forEach(game => {
+            const rating = this.getGameProgress(game.id).rating;
+            const weight = rating / 5; // Normalize to 0-1
+
+            // Weight genres
+            genreWeights[game.genre] = (genreWeights[game.genre] || 0) + weight;
+
+            // Weight themes
+            game.themes.forEach(theme => {
+                themeWeights[theme] = (themeWeights[theme] || 0) + weight;
+            });
+        });
+
+        // Get unplayed games
+        const unplayedGames = this.games.filter(game => {
+            const progress = this.getGameProgress(game.id);
+            return !progress.played;
+        });
+
+        // Score each unplayed game
+        const scoredGames = unplayedGames.map(game => {
+            let score = 0;
+
+            // Genre matching (higher weight)
+            if (genreWeights[game.genre]) {
+                score += genreWeights[game.genre] * 2;
+            }
+
+            // Theme matching
+            game.themes.forEach(theme => {
+                if (themeWeights[theme]) {
+                    score += themeWeights[theme];
+                }
+            });
+
+            // Bonus for games from similar time periods
+            const avgYear = preferredGames.reduce((sum, g) => sum + g.year, 0) / preferredGames.length;
+            const yearDiff = Math.abs(game.year - avgYear);
+            if (yearDiff <= 5) {
+                score += 1;
+            } else if (yearDiff <= 10) {
+                score += 0.5;
+            }
+
+            return { game, score };
+        });
+
+        // Sort by score and return top recommendations
+        scoredGames.sort((a, b) => b.score - a.score);
+
+        return scoredGames
+            .filter(item => item.score > 0)
+            .slice(0, 6)
+            .map(item => item.game);
+    }
+
+    updateRecommendations() {
+        const recommendations = this.generateRecommendations();
+        const section = document.getElementById('recommendations-section');
+        const grid = document.getElementById('recommendations-grid');
+
+        if (recommendations.length === 0) {
+            section.style.display = 'none';
+            return;
+        }
+
+        section.style.display = 'block';
+        grid.innerHTML = recommendations.map(game => this.createRecommendationCard(game)).join('');
+
+        // Attach click listeners
+        grid.querySelectorAll('.recommendation-card').forEach(card => {
+            card.addEventListener('click', () => {
+                this.openGameModal(parseInt(card.dataset.gameId));
+            });
+        });
+    }
+
+    createRecommendationCard(game) {
+        const matchReasons = this.getMatchReasons(game);
+
+        return `
+            <div class="recommendation-card" data-game-id="${game.id}">
+                <div class="recommendation-badge">Recommended</div>
+                <h3 class="game-title">${game.title}</h3>
+                <div class="game-meta">
+                    <span class="game-year">${game.year}</span>
+                    <span class="game-genre">${game.genre}</span>
+                </div>
+                <div class="game-themes">
+                    ${game.themes.slice(0, 3).map(theme => `<span class="theme-tag">${theme}</span>`).join('')}
+                </div>
+                <div class="match-reasons">
+                    <p class="match-text">${matchReasons}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    getMatchReasons(game) {
+        // Get highly rated games to compare
+        const highlyRated = this.games.filter(g => {
+            const progress = this.getGameProgress(g.id);
+            return progress.played && progress.rating >= 4;
+        });
+
+        if (highlyRated.length === 0) return 'Based on your ratings';
+
+        // Find matching themes and genres
+        const matchingThemes = new Set();
+        const matchingGenres = new Set();
+
+        highlyRated.forEach(ratedGame => {
+            if (ratedGame.genre === game.genre) {
+                matchingGenres.add(ratedGame.title);
+            }
+            game.themes.forEach(theme => {
+                if (ratedGame.themes.includes(theme)) {
+                    matchingThemes.add(theme);
+                }
+            });
+        });
+
+        const reasons = [];
+
+        if (matchingGenres.size > 0) {
+            reasons.push(`Similar to ${game.genre} games you enjoyed`);
+        }
+
+        if (matchingThemes.size > 0) {
+            const themesArray = Array.from(matchingThemes).slice(0, 2);
+            reasons.push(`Matches your interest in ${themesArray.join(' & ')}`);
+        }
+
+        return reasons.length > 0 ? reasons[0] : 'Based on your ratings';
     }
 
     // Populate genre filter dropdown
