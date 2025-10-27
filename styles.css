@@ -6,30 +6,100 @@
 }
 
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary-color: #8b5cf6;
-    --background: #0f172a;
-    --surface: #1e293b;
-    --surface-light: #334155;
-    --text-primary: #f1f5f9;
+    --primary-color: #06b6d4;
+    --primary-dark: #0891b2;
+    --primary-light: #22d3ee;
+    --secondary-color: #a855f7;
+    --secondary-dark: #9333ea;
+    --accent-color: #ec4899;
+    --accent-light: #f472b6;
+    --background: #0a0e1a;
+    --background-alt: #0f1419;
+    --surface: #1a1f2e;
+    --surface-light: #252a3a;
+    --surface-lighter: #2d3548;
+    --text-primary: #f0f9ff;
     --text-secondary: #cbd5e1;
-    --border: #475569;
-    --success: #22c55e;
+    --border: #334155;
+    --success: #10b981;
     --warning: #f59e0b;
     --error: #ef4444;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --transition: all 0.3s ease;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --glow-cyan: rgba(6, 182, 212, 0.3);
+    --glow-purple: rgba(168, 85, 247, 0.3);
+    --glow-pink: rgba(236, 72, 153, 0.3);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: var(--background);
+    background-image:
+        radial-gradient(ellipse at 20% 20%, var(--glow-cyan) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, var(--glow-purple) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, var(--glow-pink) 0%, transparent 60%);
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Particle Canvas */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Static Particle Animation Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, var(--primary-light), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--secondary-color), transparent),
+        radial-gradient(1px 1px at 50% 50%, var(--accent-light), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--primary-color), transparent),
+        radial-gradient(2px 2px at 90% 60%, var(--accent-color), transparent),
+        radial-gradient(1px 1px at 33% 80%, var(--secondary-color), transparent),
+        radial-gradient(1px 1px at 15% 90%, var(--primary-light), transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    opacity: 0.3;
+    animation: particleFloat 20s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        background-position: 0% 0%;
+        opacity: 0.3;
+    }
+    25% {
+        background-position: 100% 50%;
+        opacity: 0.4;
+    }
+    50% {
+        background-position: 50% 100%;
+        opacity: 0.25;
+    }
+    75% {
+        background-position: 0% 50%;
+        opacity: 0.35;
+    }
 }
 
 .container {
@@ -37,13 +107,37 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 /* Header */
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
     padding: 2rem 0;
-    box-shadow: 0 4px 6px var(--shadow);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: headerShine 3s ease-in-out infinite;
+}
+
+@keyframes headerShine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 header h1 {
@@ -79,18 +173,69 @@ main {
     box-shadow: 0 4px 6px var(--shadow);
     transition: var(--transition);
     border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .stat-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 12px var(--shadow);
+    box-shadow: 0 8px 24px var(--glow-cyan);
+    border-color: var(--primary-color);
+}
+
+.stat-card:hover::before {
+    opacity: 0.1;
+}
+
+.stat-card:nth-child(2)::before {
+    background: radial-gradient(circle, var(--glow-purple) 0%, transparent 70%);
+}
+
+.stat-card:nth-child(2):hover {
+    box-shadow: 0 8px 24px var(--glow-purple);
+    border-color: var(--secondary-color);
+}
+
+.stat-card:nth-child(3)::before {
+    background: radial-gradient(circle, var(--glow-pink) 0%, transparent 70%);
+}
+
+.stat-card:nth-child(3):hover {
+    box-shadow: 0 8px 24px var(--glow-pink);
+    border-color: var(--accent-color);
+}
+
+.stat-card:nth-child(4)::before {
+    background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+}
+
+.stat-card:nth-child(4):hover {
+    box-shadow: 0 8px 24px var(--glow-cyan);
+    border-color: var(--primary-light);
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .stat-label {
@@ -102,12 +247,35 @@ main {
 
 /* Recommendations Section */
 .recommendations-section {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(168, 85, 247, 0.08), rgba(236, 72, 153, 0.08));
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    border: 2px solid transparent;
+    border-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color)) 1;
+    box-shadow: 0 4px 20px var(--glow-cyan);
+    position: relative;
+    overflow: hidden;
+}
+
+.recommendations-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    animation: recommendationShine 3s ease-in-out infinite;
+}
+
+@keyframes recommendationShine {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
 }
 
 .recommendations-header {
@@ -157,18 +325,30 @@ main {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-size: 200% 100%;
+    animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .recommendation-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
-    border-color: var(--secondary-color);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px var(--glow-purple);
+    border-color: var(--accent-color);
 }
 
 .recommendation-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-size: 200% 200%;
     color: white;
     padding: 0.35rem 0.875rem;
     border-radius: 20px;
@@ -177,6 +357,21 @@ main {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 0 20px var(--glow-cyan);
+    animation: badgePulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 20px var(--glow-cyan);
+    }
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 30px var(--glow-purple);
+    }
 }
 
 .recommendation-card .game-title {
@@ -240,7 +435,17 @@ main {
 .search-bar input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px var(--glow-cyan), 0 0 20px var(--glow-cyan);
+    animation: inputFocusPulse 2s ease-in-out infinite;
+}
+
+@keyframes inputFocusPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 3px var(--glow-cyan), 0 0 20px var(--glow-cyan);
+    }
+    50% {
+        box-shadow: 0 0 0 4px var(--glow-purple), 0 0 25px var(--glow-purple);
+    }
 }
 
 .filters {
@@ -263,7 +468,7 @@ main {
 .filters select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px var(--glow-cyan), 0 0 15px var(--glow-cyan);
 }
 
 .filters select:hover {
@@ -296,8 +501,8 @@ main {
 }
 
 .game-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px var(--shadow);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 32px var(--glow-cyan);
     border-color: var(--primary-color);
 }
 
@@ -308,13 +513,26 @@ main {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
     opacity: 0;
     transition: var(--transition);
 }
 
 .game-card:hover::before {
     opacity: 1;
+    animation: gradientSlide 2s ease infinite;
+}
+
+@keyframes gradientSlide {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .game-card.played {
@@ -379,9 +597,10 @@ main {
 }
 
 .status-badge.played {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(16, 185, 129, 0.15);
     color: var(--success);
     border: 1px solid var(--success);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
 }
 
 .status-badge.unplayed {
@@ -527,7 +746,8 @@ main {
 .star-rating .star:hover,
 .star-rating .star.active {
     color: var(--warning);
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
 }
 
 .star-rating .star:hover ~ .star {
@@ -556,14 +776,31 @@ main {
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow);
+    box-shadow: 0 8px 24px var(--glow-cyan);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-secondary {
@@ -573,8 +810,10 @@ main {
 }
 
 .btn-secondary:hover {
-    background: var(--border);
+    background: var(--surface-lighter);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--glow-cyan);
 }
 
 /* Footer */
