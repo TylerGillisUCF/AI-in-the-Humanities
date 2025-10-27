@@ -759,6 +759,129 @@ main {
     font-size: 0.95rem;
 }
 
+/* Notes Section */
+.notes-section {
+    margin-bottom: 2rem;
+}
+
+.notes-section h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.notes-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+#game-notes {
+    width: 100%;
+    min-height: 120px;
+    max-height: 300px;
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: var(--transition);
+}
+
+#game-notes:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--glow-cyan), 0 0 20px var(--glow-cyan);
+}
+
+#game-notes::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.notes-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+#notes-char-count {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.btn-save-notes {
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-save-notes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-save-notes:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--glow-cyan);
+}
+
+.btn-save-notes:hover::before {
+    left: 100%;
+}
+
+.btn-save-notes:active {
+    transform: translateY(0);
+}
+
+.notes-preview {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: var(--background-alt);
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.notes-preview-label {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notes-preview-label::before {
+    content: '📝';
+}
+
+.notes-preview-text {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
 .modal-actions {
     display: flex;
     gap: 1rem;
